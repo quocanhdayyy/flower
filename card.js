@@ -132,7 +132,7 @@
 
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (saved && Object.keys(inputs).every(key => typeof saved[key] === 'string'
+    if (!editButton.disabled && saved && Object.keys(inputs).every(key => typeof saved[key] === 'string'
       && saved[key].trim().length > 0 && saved[key].length <= inputs[key].maxLength)) {
       greeting = Object.fromEntries(Object.keys(inputs).map(key => [key, saved[key].trim()]));
     }
