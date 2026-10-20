@@ -108,7 +108,7 @@
 
     try {
       const saved = localStorage.getItem(key);
-      if (!saved || !saved.startsWith('data:image/jpeg;base64,')) return;
+      if (edit.disabled || !saved || !saved.startsWith('data:image/jpeg;base64,')) return;
       const image = new Image();
       image.src = saved;
       await image.decode();
